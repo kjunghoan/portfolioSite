@@ -15,7 +15,7 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({
   className = '',
   style = {},
   fullHeight = true,
-  minHeight = '400px',
+  minHeight = '100vh',
   id,
 }) => {
   const { isMobile, windowHeight } = useResponsive();
@@ -23,10 +23,14 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({
   return (
     <section
       id={id}
-      className={`relative w-full transition-all duration-300 ${className}`}
+      className={`relative w-full transition-all duration-300 ${isMobile ? '' : 'overflow-hidden'} bg-center ${className}`}
       style={{
-        height: fullHeight ? `${windowHeight}px` : 'auto',
-        minHeight: !fullHeight ? minHeight : undefined,
+        height: isMobile ? 'auto' : fullHeight ? `${windowHeight}px` : 'auto',
+        minHeight: isMobile
+          ? `${windowHeight}px`
+          : !fullHeight
+            ? minHeight
+            : `${windowHeight}px`,
         ...style,
       }}
       data-is-mobile={isMobile}

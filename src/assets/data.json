@@ -2,7 +2,7 @@
   "aboutMe": {
     "heading": "Jung Hoan Kim",
     "subHeading": "Software Engineer",
-    "image": "/src/assets/images/profile-placeholder.svg",
+    "image": "/assets/images/profile-placeholder.svg",
     "content": [
       "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
       "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
@@ -11,17 +11,17 @@
   "contact": [
     {
       "pointOfContact": "Email",
-      "logo": "/src/assets/icons/email.svg",
+      "logo": "/assets/icons/email.svg",
       "link": "mailto:kjunggoan@gmail.com"
     },
     {
       "pointOfContact": "LinkedIn",
-      "logo": "/src/assets/icons/linkedin.svg",
+      "logo": "/assets/icons/linkedin.svg",
       "link": "https://www.linkedin.com/in/kjunghoan"
     },
     {
       "pointOfContact": "GitHub",
-      "logo": "/src/assets/icons/github.svg",
+      "logo": "/assets/icons/github.svg",
       "link": "https://github.com/kjunghoan"
     }
   ],

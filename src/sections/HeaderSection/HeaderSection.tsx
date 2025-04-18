@@ -31,9 +31,13 @@ const HeaderSection: React.FC = () => {
 
   const sectionLinks = () => {
     return sections.map((section) => (
-      <div key={section.id} className="relative group px-2">
+      <div
+        id={`link-to-${section.id}`}
+        key={section.id}
+        className={`${isMobile ? 'mt-4' : ''}relative group px-2`}
+      >
         <h1
-          className="cursor-pointer hover:text-green-800 transition-colors"
+          className={`${isMobile ? 'text-lg' : 'text-2xl'} cursor-pointer hover:text-green-800 transition-colors`}
           onClick={() => scrollToSection(section.id)}
         >
           {section.title}
@@ -47,11 +51,11 @@ const HeaderSection: React.FC = () => {
   return (
     <SectionWrapper
       fullHeight={true}
-      className="overflow-hidden bg-cover bg-center"
+      className="flex items-center justify-center"
       style={{}}
       id="header"
     >
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full min-h-full px-4 text-center">
         <h1
           // for some reason text-green-950 isnt working but for now this works as a placeholder
           className={`font-bold text-green-800 transition-all duration-300 ${isMobile ? 'text-3xl' : 'text-5xl'}`}

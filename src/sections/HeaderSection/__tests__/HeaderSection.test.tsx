@@ -17,13 +17,26 @@ vi.mock('@/hooks/useResponsive', () => {
 vi.mock('@/components/SectionWrapper', () => ({
   default: ({
     children,
-    ...props
+    fullHeight,
+    className,
+    style,
+    id,
   }: {
     children: React.ReactNode;
-    [key: string]: unknown;
+    fullHeight?: boolean;
+    className?: string;
+    style?: React.CSSProperties;
+    id?: string;
+    minHeight?: string;
   }) => {
     return (
-      <div data-testid="mock-section-wrapper" {...props}>
+      <div
+        data-testid="mock-section-wrapper"
+        className={className}
+        style={style}
+        id={id}
+        data-fullheight={fullHeight}
+      >
         {children}
       </div>
     );

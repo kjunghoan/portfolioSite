@@ -11,7 +11,7 @@ const AboutMeSection: React.FC = () => {
         <p
           id={`aboutMe-p-${index}`}
           key={`aboutMe-p-${index}`}
-          className={`${isMobile ? 'text-xl' : 'text-2xl'} my-5`}
+          className={isMobile ? 'text-body-mobile' : 'text-body-desktop'}
         >
           {paragraph}
         </p>
@@ -29,24 +29,29 @@ const AboutMeSection: React.FC = () => {
       <div
         id={`social-${index}`}
         key={index}
-        className="mx-2 cursor-pointer hover:opacity-80 transition-opacity"
+        className="social-icon"
         onClick={() => socialOnClick(social.link)}
       >
         <img
           src={social.logo}
           alt={social.pointOfContact}
-          className={`${isMobile ? 'w-6 h-6' : 'w-8 h-8'} mb-2`}
+          className={isMobile ? 'social-icon-mobile' : 'social-icon-desktop'}
         />
       </div>
     ));
   };
 
   return (
-    <SectionWrapper fullHeight={true} className="" style={{}} id="aboutMe">
+    <SectionWrapper
+      fullHeight={true}
+      className={`bg-wood-one ${isMobile ? 'px-5' : 'p-20'}`}
+      style={{}}
+      id="aboutMe"
+    >
       {/* Heading */}
-      <div className="mt-[10vh] flex flex-col items-start ms-5">
-        <h1 className="text-3xl font-bold mb-2">{aboutMeContent.heading}</h1>
-        <h2 className="text-xl font-semibold mb-2 ps-2 underline-offset-8">
+      <div className="mt-[5vh] flex flex-col items-start ms-5 pt-10">
+        <h1 className="heading-primary mb-2">{aboutMeContent.heading}</h1>
+        <h2 className="heading-secondary mb-2 ps-2 underline-offset-8">
           {aboutMeContent.subHeading}
         </h2>
       </div>
@@ -61,7 +66,7 @@ const AboutMeSection: React.FC = () => {
             <img
               src={aboutMeContent.image}
               alt="About Me"
-              className="w-full shadow-lg min-w-[13rem] min-h-[13rem] max-w-[20rem] max-h-[20rem]"
+              className="w-full shadow-lg min-w-[13rem] min-h-[13rem] max-w-[15rem] max-h-[15rem] rounded-xl"
             />
           </div>
 
@@ -90,7 +95,7 @@ const AboutMeSection: React.FC = () => {
             <img
               src={aboutMeContent.image}
               alt="About Me"
-              className="w-full shadow-lg min-w-[13rem] min-h-[13rem] max-w-[20rem] max-h-[20rem]"
+              className="w-full shadow-lg min-w-[13rem] min-h-[13rem] max-w-[20rem] max-h-[20rem] rounded-xl"
             />
           </div>
 

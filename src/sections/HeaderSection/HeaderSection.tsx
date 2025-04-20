@@ -37,13 +37,13 @@ const HeaderSection: React.FC = () => {
         className={`${isMobile ? 'mt-4' : ''}relative group px-2`}
       >
         <h1
-          className={`${isMobile ? 'text-lg' : 'text-2xl'} cursor-pointer hover:text-green-800 transition-colors`}
+          className={`${isMobile ? 'text-lg' : 'text-2xl'} nav-link`}
           onClick={() => scrollToSection(section.id)}
         >
           {section.title}
         </h1>
         {/* Underline with center-out animation */}
-        <div className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-green-800 group-hover:w-full group-hover:left-0 transition-all duration-300 origin-center"></div>
+        <div className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-accent-green group-hover:w-full group-hover:left-0 transition-all duration-300 origin-center" />
       </div>
     ));
   };
@@ -51,14 +51,14 @@ const HeaderSection: React.FC = () => {
   return (
     <SectionWrapper
       fullHeight={true}
-      className="flex items-center justify-center"
+      className="flex-center"
       style={{}}
       id="header"
     >
-      <div className="relative z-10 flex flex-col items-center justify-center h-full min-h-full px-4 text-center">
+      <div className="relative z-10 flex-center-col h-full min-h-full px-4 text-center">
         <h1
           // for some reason text-green-950 isnt working but for now this works as a placeholder
-          className={`font-bold text-green-800 transition-all duration-300 ${isMobile ? 'text-3xl' : 'text-5xl'}`}
+          className={`font-bold text-accent-green transition-all duration-300 ${isMobile ? 'text-3xl' : 'text-5xl'}`}
         >
           Jung Hoan Kim
         </h1>

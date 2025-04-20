@@ -1,5 +1,6 @@
 import { CSSProperties, ReactNode } from 'react';
 import useResponsive from '@/hooks/useResponsive';
+import './swiper-styles.css';
 
 interface SectionWrapperProps {
   children: ReactNode;
@@ -23,7 +24,7 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({
   return (
     <section
       id={id}
-      className={`relative w-full transition-all duration-300 ${isMobile ? '' : 'overflow-hidden'} bg-center ${className}`}
+      className={`relative section-container ${isMobile ? '' : 'overflow-hidden'} bg-center ${className}`}
       style={{
         height: isMobile ? 'auto' : fullHeight ? `${windowHeight}px` : 'auto',
         minHeight: isMobile

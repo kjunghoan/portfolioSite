@@ -25,6 +25,93 @@
       "link": "https://github.com/kjunghoan"
     }
   ],
-  "projects": [],
-  "skills": []
+  "projects": [
+    {
+      "title": "NeoVim Config",
+      "description": "A neovim configuration that I use for my development. It is built using Lua and Lazy.",
+      "image": "",
+      "link": "https://github.com/kjunghoan/nvim",
+      "type": "config",
+      "tags": [
+        {
+          "name": "Lua",
+          "color": "#2C2D72"
+        },
+        {
+          "name": "Neovim",
+          "color": "#57A143"
+        },
+        {
+          "name": "Lazy",
+          "color": "#2C2D72"
+        }
+      ]
+    },
+    {
+      "title": "Alki",
+      "description": "Alki is a platform that uses spaced repetition to helps students and engineers study data-structures and algorithms. It provides a variety of resources and tools to help students study effectively.",
+      "image": "/assets/images/alki.png",
+      "link": "https://www.alkiprep.com/",
+      "type": "full-stack",
+      "tags": [
+        {
+          "name": "React",
+          "color": "#61DAFB"
+        },
+        {
+          "name": "Spring Boot",
+          "color": "#6DB33F"
+        },
+        {
+          "name": "TypeScript",
+          "color": "#007ACC"
+        },
+        {
+          "name": "MongoDB",
+          "color": "#47A248"
+        }
+      ]
+    },
+    {
+      "title": "PortfolioSite",
+      "description": "A portfolio site to showcase my projects and skills. It is built using React and tailwindcss.",
+      "image": "/assets/images/alki.png",
+      "link": "https://github.com/kjunghoan/portfolioSite",
+      "type": "frontend",
+      "tags": [
+        {
+          "name": "React",
+          "color": "#61DAFB"
+        },
+        {
+          "name": "Tailwind CSS",
+          "color": "#38B2AC"
+        },
+        {
+          "name": "TypeScript",
+          "color": "#007ACC"
+        },
+        {
+          "name": "Three.js",
+          "color": "#000000"
+        },
+        {
+          "name": "vitejs",
+          "color": "#646464"
+        }
+      ]
+    }
+  ],
+  "skills": [],
+  "title": "string",
+  "description": "string",
+  "image": "string",
+  "link": "string",
+  "type": "string",
+  "tags": [
+    {
+      "name": "string",
+      "color": "string"
+    }
+  ]
 }

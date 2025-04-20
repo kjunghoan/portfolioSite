@@ -1,1 +1,92 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-accent-green: #4a5d39;
+  --color-wood-one: #8b5a2b;
+  --color-wood-two: #5d3b1f;
+}
+
+/* Typography */
+@layer components {
+  .heading-primary {
+    /* Used in aboutme */
+    @apply text-3xl font-bold text-white;
+  }
+
+  .heading-secondary {
+    /* Used in aboutme */
+    @apply text-xl font-semibold text-white;
+  }
+
+  .text-body {
+    /* Used in aboutme */
+    @apply text-white;
+  }
+
+  .text-body-mobile {
+    /* Used in aboutme */
+    @apply text-xl text-white my-5 text-left;
+  }
+
+  .text-body-desktop {
+    /* Used in aboutme */
+    @apply text-2xl text-white my-5 text-left;
+  }
+
+  /* Layout and containers */
+  .section-container {
+    /* Used in sectionWrapper */
+    @apply w-full transition-all duration-300;
+  }
+
+  .flex-center {
+    /* Used in header projects */
+    @apply flex items-center justify-center;
+  }
+
+  .flex-center-col {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  /* Interactive elements */
+  .nav-link {
+    /* Used in header */
+    @apply cursor-pointer hover:text-accent-green transition-colors;
+  }
+
+  .social-icon {
+    /* Used in aboutme */
+    @apply mx-2 cursor-pointer hover:opacity-80 transition-opacity;
+  }
+
+  .social-icon-mobile {
+    /* Used in aboutme */
+    @apply w-6 h-6 mb-2;
+  }
+
+  .social-icon-desktop {
+    /* Used in aboutme */
+    @apply w-8 h-8 mb-2;
+  }
+
+  .tag-badge {
+    /* Used in projects */
+    @apply px-2 py-1 text-xs rounded-full text-white;
+  }
+
+  .project-card {
+    /* Used in projects */
+    @apply flex flex-col h-full bg-stone-100 rounded-xl overflow-hidden border-2 border-amber-200;
+  }
+
+  .project-link {
+    /* Used in projects */
+    @apply self-end px-3 py-1 mt-2 text-xs bg-amber-300 text-white rounded-full hover:bg-amber-400 transition-colors;
+  }
+
+  /* Images */
+  .img-rounded {
+    /* Used in aboutme */
+    @apply shadow-lg rounded-xl;
+  }
+}

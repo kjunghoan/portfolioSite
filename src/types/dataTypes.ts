@@ -17,6 +17,7 @@ export interface ProjectContent {
   image: string;
   link: string;
   tags: Tag[];
+  type: string;
 }
 
 export interface SkillContent {

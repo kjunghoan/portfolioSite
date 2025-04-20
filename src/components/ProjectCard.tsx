@@ -11,7 +11,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, id }) => {
   const { title, description, image, link, type, tags } = project;
 
   const typeMap = (type: string): string => {
-    // Maps project type to a color
     switch (type) {
       case 'config': {
         return '#ff796C'; // Light red
@@ -32,7 +31,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, id }) => {
   };
 
   const mapTags = () => {
-    // Renders tag badges with appropriate styling
     return tags.map((tag, index) => (
       <span
         key={index}

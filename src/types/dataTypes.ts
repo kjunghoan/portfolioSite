@@ -25,7 +25,7 @@ export interface SkillContent {
   icon: string;
 }
 
-interface Tag {
+export interface Tag {
   name: string;
   color: string;
 }

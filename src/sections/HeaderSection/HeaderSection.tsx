@@ -19,7 +19,7 @@ const HeaderSection: React.FC = () => {
     { id: 'header', title: 'Header' },
     { id: 'aboutMe', title: 'About Me' },
     { id: 'projects', title: 'Projects' },
-    { id: 'techStack', title: 'Tech Stack' },
+    { id: 'bookshelf', title: 'Skills' },
   ];
 
   const scrollToSection = (id: string) => {
@@ -57,7 +57,6 @@ const HeaderSection: React.FC = () => {
     >
       <div className="relative z-10 flex-center-col h-full min-h-full px-4 text-center">
         <h1
-          // for some reason text-green-950 isnt working but for now this works as a placeholder
           className={`font-bold text-accent-green transition-all duration-300 ${isMobile ? 'text-3xl' : 'text-5xl'}`}
         >
           Jung Hoan Kim

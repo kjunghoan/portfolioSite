@@ -2,7 +2,6 @@ import {
   AboutMeContent,
   ContactContent,
   ProjectContent,
-  SkillContent,
   Tag,
 } from '@/types/dataTypes';
 
@@ -146,4 +145,3 @@ export const projectsContent: ProjectContent[] = [
     tags: [tags.react, tags.typescript, tags.tailwind, tags.threejs, tags.vite],
   },
 ];
-export const skillsContent: SkillContent[] = [];

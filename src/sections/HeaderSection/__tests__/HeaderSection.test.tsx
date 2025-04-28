@@ -50,6 +50,6 @@ describe('HeaderSection', () => {
     expect(screen.getByText('Header')).toBeInTheDocument();
     expect(screen.getByText('About Me')).toBeInTheDocument();
     expect(screen.getByText('Projects')).toBeInTheDocument();
-    expect(screen.getByText('Tech Stack')).toBeInTheDocument();
+    expect(screen.getByText('Skills')).toBeInTheDocument();
   });
 });

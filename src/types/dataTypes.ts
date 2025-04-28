@@ -20,10 +20,11 @@ export interface ProjectContent {
   type: string;
 }
 
-export interface SkillContent {
-  name: string;
-  icon: string;
-}
+// export interface SkillContent {
+//   title: string;
+//   logo: string;
+//   type: string;
+// }
 
 export interface Tag {
   name: string;

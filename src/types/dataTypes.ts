@@ -17,16 +17,44 @@ export interface ProjectContent {
   image: string;
   link: string;
   tags: Tag[];
-  type: string;
+  type: 'config' | 'full-stack' | 'front-end' | 'back-end' | 'other';
 }
 
-// export interface SkillContent {
-//   title: string;
-//   logo: string;
-//   type: string;
-// }
+interface SkillBase {
+  title: string;
+  link: string;
+}
 
-export interface Tag {
-  name: string;
+export interface SkillContent extends SkillBase {
+  logo: string;
+  type:
+    | 'language'
+    | 'framework'
+    | 'database'
+    | 'cloud'
+    | 'tool'
+    | 'misc'
+    | 'platform'
+    | 'other';
+}
+
+export interface Tag extends SkillBase {
+  color: string;
+}
+
+// Combined interface with all properties
+export interface CombinedSkill {
+  title: string;
+  link: string;
+  logo: string;
+  type:
+    | 'language'
+    | 'framework'
+    | 'database'
+    | 'cloud'
+    | 'tool'
+    | 'misc'
+    | 'platform'
+    | 'other';
   color: string;
 }

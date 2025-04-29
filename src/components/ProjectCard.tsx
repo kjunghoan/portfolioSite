@@ -36,8 +36,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, id }) => {
         key={index}
         className="tag-badge"
         style={{ backgroundColor: tag.color }}
+        onClick={() => window.open(tag.link, '_blank')}
       >
-        {tag.name}
+        {tag.title}
       </span>
     ));
   };

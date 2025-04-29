@@ -23,8 +23,12 @@ describe('ProjectCard', () => {
     link: 'https://example.com',
     type: 'full-stack',
     tags: [
-      { name: 'React', color: '#61DAFB' },
-      { name: 'TypeScript', color: '#007ACC' },
+      { title: 'React', color: '#61DAFB', link: 'https://reactjs.org' },
+      {
+        title: 'TypeScript',
+        color: '#007ACC',
+        link: 'https://www.typescriptlang.org',
+      },
     ],
   };
 
@@ -52,7 +56,7 @@ describe('ProjectCard', () => {
     render(<ProjectCard project={mockProject} />);
 
     mockProject.tags.forEach((tag) => {
-      const tagElement = screen.getByText(tag.name);
+      const tagElement = screen.getByText(tag.title);
       expect(tagElement).toBeInTheDocument();
       expect(tagElement).toHaveStyle(`background-color: ${tag.color}`);
     });

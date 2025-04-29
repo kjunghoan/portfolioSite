@@ -1,19 +1,18 @@
-import { Vector2 } from 'three';
+import { Vector3 } from 'three';
+import { SkillContent } from './dataTypes';
 
-export interface Book {
+export interface Book extends SkillContent {
   id: string;
-  position: Vector2;
+  position: Vector3;
   width: number;
   height: number;
-  rotation?: number; // In radians
-  title?: string;
-  logo?: string;
-  type?: 'language' | 'framework' | 'database' | 'cloud' | 'tool' | 'misc';
+  depth: number;
+  rotation: Vector3;
 }
 
 export interface Decoration {
   id: string;
-  position: Vector2;
-  size: Vector2;
-  rotation?: number;
+  position: Vector3;
+  size: Vector3;
+  rotation: Vector3;
 }

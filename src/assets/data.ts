@@ -2,12 +2,9 @@ import {
   AboutMeContent,
   ContactContent,
   ProjectContent,
-  Tag,
+  CombinedSkill,
 } from '@/types/dataTypes';
 
-interface TagCollection {
-  [key: string]: Tag;
-}
 export const aboutMeContent: AboutMeContent = {
   heading: 'Jung Hoan Kim',
   subHeading: 'Software Engineer',
@@ -36,111 +33,213 @@ export const contactContent: ContactContent[] = [
   },
 ];
 
-export const tags: TagCollection = {
-  lua: {
-    name: 'Lua',
-    color: '#2C2D72',
-  },
-  nvim: {
-    name: 'Neovim',
-    color: '#57A143',
-  },
-  lazy: {
-    name: 'Lazy',
-    color: '#2C2D72',
-  },
-  react: {
-    name: 'React',
-    color: '#61DAFB',
-  },
-  spring: {
-    name: 'Spring',
-    color: '#6DB33F',
-  },
+export const skills: Record<string, CombinedSkill> = {
+  // Languages
   typescript: {
-    name: 'TypeScript',
+    title: 'TypeScript',
+    link: 'https://www.typescriptlang.org/',
+    logo: '/assets/skills/typescript.svg',
+    type: 'language',
     color: '#007ACC',
   },
-  mongodb: {
-    name: 'MongoDB',
-    color: '#47A248',
+  javascript: {
+    title: 'JavaScript',
+    link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    logo: '/assets/skills/javascript.svg',
+    type: 'language',
+    color: '#F7DF1E',
   },
-  tailwind: {
-    name: 'Tailwind CSS',
-    color: '#38B2AC',
+  python: {
+    title: 'Python',
+    link: 'https://www.python.org/',
+    logo: '/assets/skills/python.svg',
+    type: 'language',
+    color: '#3776AB',
+  },
+  java: {
+    title: 'Java',
+    link: 'https://www.java.com/',
+    logo: '/assets/skills/java.svg',
+    type: 'language',
+    color: '#007396',
+  },
+  lua: {
+    title: 'Lua',
+    link: 'https://www.lua.org/',
+    logo: '/assets/skills/lua.svg',
+    type: 'language',
+    color: '#2C2D72',
   },
 
-  threejs: {
-    name: 'Three.js',
-    color: '#000000',
-  },
-  vite: {
-    name: 'Vite',
-    color: '#646464',
-  },
-  postgresql: {
-    name: 'PostgreSQL',
-    color: '#336791',
+  // Frameworks
+  react: {
+    title: 'React',
+    link: 'https://reactjs.org/',
+    logo: '/assets/skills/react.svg',
+    type: 'framework',
+    color: '#61DAFB',
   },
   nextjs: {
-    name: 'Next.js',
+    title: 'Next.js',
+    link: 'https://nextjs.org/',
+    logo: '/assets/skills/nextjs.svg',
+    type: 'framework',
     color: '#000000',
+  },
+  spring: {
+    title: 'Spring',
+    link: 'https://spring.io/',
+    logo: '/assets/skills/spring.svg',
+    type: 'framework',
+    color: '#6DB33F',
   },
   express: {
-    name: 'Express',
+    title: 'Express',
+    link: 'https://expressjs.com/',
+    logo: '/assets/skills/express.svg',
+    type: 'framework',
     color: '#000000',
   },
+  tailwind: {
+    title: 'Tailwind CSS',
+    link: 'https://tailwindcss.com/',
+    logo: '/assets/skills/tailwind.svg',
+    type: 'framework',
+    color: '#38B2AC',
+  },
+  sass: {
+    title: 'Sass',
+    link: 'https://sass-lang.com/',
+    logo: '/assets/skills/sass.svg',
+    type: 'framework',
+    color: '#CC6699',
+  },
+
+  // Databases
+  postgresql: {
+    title: 'PostgreSQL',
+    link: 'https://www.postgresql.org/',
+    logo: '/assets/skills/postgresql.svg',
+    type: 'database',
+    color: '#336791',
+  },
+  mongodb: {
+    title: 'MongoDB',
+    link: 'https://www.mongodb.com/',
+    logo: '/assets/skills/mongodb.svg',
+    type: 'database',
+    color: '#47A248',
+  },
   mysql: {
-    name: 'MySQL',
+    title: 'MySQL',
+    link: 'https://www.mysql.com/',
+    logo: '/assets/skills/mysql.svg',
+    type: 'database',
     color: '#4479A1',
   },
-  yarn: {
-    name: 'Yarn',
-    color: '#2C8EBB',
+  prisma: {
+    title: 'Prisma',
+    link: 'https://www.prisma.io/',
+    logo: '/assets/skills/prisma.svg',
+    type: 'database',
+    color: '#2D3748',
   },
-  docker: {
-    name: 'Docker',
-    color: '#2496ED',
+  pinecone: {
+    title: 'Pinecone',
+    link: 'https://www.pinecone.io/',
+    logo: '/assets/skills/pinecone.svg',
+    type: 'database',
+    color: '#000000',
   },
+
+  // Cloud
   aws: {
-    name: 'AWS',
+    title: 'AWS',
+    link: 'https://aws.amazon.com/',
+    logo: '/assets/skills/aws.svg',
+    type: 'cloud',
     color: '#FF9900',
   },
+  firebase: {
+    title: 'Firebase',
+    link: 'https://firebase.google.com/',
+    logo: '/assets/skills/firebase.svg',
+    type: 'cloud',
+    color: '#FFCA28',
+  },
+
+  // Tools
+  docker: {
+    title: 'Docker',
+    link: 'https://www.docker.com/',
+    logo: '/assets/skills/docker.svg',
+    type: 'tool',
+    color: '#2496ED',
+  },
+  git: {
+    title: 'Git',
+    link: 'https://git-scm.com/',
+    logo: '/assets/skills/git.svg',
+    type: 'tool',
+    color: '#F05032',
+  },
+  nvim: {
+    title: 'Neovim',
+    link: 'https://neovim.io/',
+    logo: '/assets/skills/neovim.svg',
+    type: 'tool',
+    color: '#57A143',
+  },
+  vite: {
+    title: 'Vite',
+    link: 'https://vitejs.dev/',
+    logo: '/assets/skills/vite.svg',
+    type: 'tool',
+    color: '#646CFF',
+  },
+  threejs: {
+    title: 'Three.js',
+    link: 'https://threejs.org/',
+    logo: '/assets/skills/threejs.svg',
+    type: 'tool',
+    color: '#000000',
+  },
+
+  // Miscellaneous
   proxmox: {
-    name: 'Proxmox',
+    title: 'Proxmox',
+    link: 'https://www.proxmox.com/',
+    logo: '/assets/skills/proxmox.svg',
+    type: 'misc',
     color: '#8B0000',
   },
   ceph: {
-    name: 'Ceph',
+    title: 'Ceph',
+    link: 'https://ceph.io/',
+    logo: '/assets/skills/ceph.svg',
+    type: 'misc',
     color: '#000000',
   },
   zmk: {
-    name: 'ZMK',
+    title: 'ZMK',
+    link: 'https://zmk.dev/',
+    logo: '/assets/skills/zmk.svg',
+    type: 'misc',
     color: '#000000',
   },
-  python: {
-    name: 'Python',
-    color: '#3776AB',
+  lazy: {
+    title: 'Lazy',
+    link: 'https://github.com/folke/lazy.nvim',
+    logo: '/assets/skills/lazy.svg',
+    type: 'tool',
+    color: '#2C2D72',
   },
-  git: {
-    name: 'Git',
-    color: '#F05032',
-  },
-  pinecone: {
-    name: 'Pinecone',
-    color: '#000000',
-  },
-  prisma: {
-    name: 'Prisma',
-    color: '#2D3748',
-  },
-  sass: {
-    name: 'Sass',
-    color: '#CC6699',
-  },
-  firebase: {
-    name: 'Firebase',
-    color: '#FFCA28',
+  yarn: {
+    title: 'Yarn',
+    link: 'https://yarnpkg.com/',
+    logo: '/assets/skills/yarn.svg',
+    type: 'tool',
+    color: '#2C8EBB',
   },
 };
 
@@ -152,7 +251,7 @@ export const projectsContent: ProjectContent[] = [
     image: 'null', // TODO: add image
     link: 'https://github.com/kjunghoan/nvim',
     type: 'config',
-    tags: [tags.lua, tags.nvim, tags.lazy],
+    tags: [skills.lua, skills.nvim, skills.lazy],
   },
   // {
   //   title: '',
@@ -170,7 +269,7 @@ export const projectsContent: ProjectContent[] = [
     image: 'null', //TODO: add image
     link: 'https://www.alkiprep.com/',
     type: 'full-stack',
-    tags: [tags.react, tags.typescript, tags.spring, tags.mongodb],
+    tags: [skills.react, skills.typescript, skills.spring, skills.mongodb],
   },
   {
     title: 'PortfolioSite',
@@ -179,7 +278,13 @@ export const projectsContent: ProjectContent[] = [
     image: 'null', //TODO: add image
     link: 'https://github.com/kjunghoan/portfolioSite',
     type: 'front-end',
-    tags: [tags.react, tags.typescript, tags.tailwind, tags.threejs, tags.vite],
+    tags: [
+      skills.react,
+      skills.typescript,
+      skills.tailwind,
+      skills.threejs,
+      skills.vite,
+    ],
   },
   {
     title: 'ZMK Config (Corne 42)',
@@ -188,7 +293,7 @@ export const projectsContent: ProjectContent[] = [
     image: 'null', //TODO: add image
     link: 'https://github.com/kjunghoan/zmk-config',
     type: 'config',
-    tags: [tags.zmk],
+    tags: [skills.zmk],
   },
   {
     title: 'Apt World',
@@ -197,7 +302,7 @@ export const projectsContent: ProjectContent[] = [
     image: 'null', //TODO: add image
     link: 'https://github.com/kjunghoan/apt-world-kjh',
     type: 'other',
-    tags: [tags.python],
+    tags: [skills.python],
   },
   {
     title: 'Git Config',
@@ -205,7 +310,7 @@ export const projectsContent: ProjectContent[] = [
     image: 'null', //TODO: add image
     link: 'https://github.com/kjunghoan/git',
     type: 'config',
-    tags: [tags.git],
+    tags: [skills.git],
   },
   {
     title: 'Toolbox',
@@ -214,7 +319,7 @@ export const projectsContent: ProjectContent[] = [
     image: 'null', //TODO: add image
     link: 'https://github.com/kjunghoan/tools',
     type: 'other',
-    tags: [tags.docker],
+    tags: [skills.docker],
   },
   {
     title: 'Rag Chat',
@@ -223,7 +328,7 @@ export const projectsContent: ProjectContent[] = [
     image: 'null', //TODO: add image
     link: 'https://github.com/kjunghoan/rag',
     type: 'full-stack',
-    tags: [tags.react, tags.typescript, tags.pinecone, tags.postgresql],
+    tags: [skills.react, skills.typescript, skills.pinecone, skills.postgresql],
   },
   {
     title: 'Ecommerce Microservices Backend',
@@ -232,7 +337,7 @@ export const projectsContent: ProjectContent[] = [
     image: 'null', //TODO: add image
     link: 'https://github.com/kjunghoan/microservice-new',
     type: 'back-end',
-    tags: [tags.spring, tags.mysql, tags.mongodb],
+    tags: [skills.spring, skills.mysql, skills.mongodb],
   },
   {
     title: 'Inventory Management App',
@@ -240,7 +345,7 @@ export const projectsContent: ProjectContent[] = [
     image: 'null', //TODO: add image
     link: 'https://github.com/kjunghoan/inventory-management-app',
     type: 'front-end',
-    tags: [tags.react, tags.firebase, tags.nextjs],
+    tags: [skills.react, skills.firebase, skills.nextjs],
   },
   {
     title: 'Echos',
@@ -250,12 +355,12 @@ export const projectsContent: ProjectContent[] = [
     link: 'https://github.com/kjunghoan/echos',
     type: 'full-stack',
     tags: [
-      tags.typescript,
-      tags.react,
-      tags.nextjs,
-      tags.postgresql,
-      tags.prisma,
-      tags.sass,
+      skills.typescript,
+      skills.react,
+      skills.nextjs,
+      skills.postgresql,
+      skills.prisma,
+      skills.sass,
     ],
   },
 ];

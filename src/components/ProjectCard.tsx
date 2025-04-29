@@ -19,13 +19,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, id }) => {
         return '#546778'; // Blue
       }
       case 'front-end': {
-        return '#fff3e0'; // Light orange
+        return '#bd6e0e'; // Darker orange
       }
       case 'back-end': {
         return '#87AA82'; // Green
       }
       default: {
-        return '#f5f5dc'; // Default Beige
+        return '#9c27b0'; // Purple
       }
     }
   };

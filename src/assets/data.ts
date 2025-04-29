@@ -114,6 +114,34 @@ export const tags: TagCollection = {
     name: 'Ceph',
     color: '#000000',
   },
+  zmk: {
+    name: 'ZMK',
+    color: '#000000',
+  },
+  python: {
+    name: 'Python',
+    color: '#3776AB',
+  },
+  git: {
+    name: 'Git',
+    color: '#F05032',
+  },
+  pinecone: {
+    name: 'Pinecone',
+    color: '#000000',
+  },
+  prisma: {
+    name: 'Prisma',
+    color: '#2D3748',
+  },
+  sass: {
+    name: 'Sass',
+    color: '#CC6699',
+  },
+  firebase: {
+    name: 'Firebase',
+    color: '#FFCA28',
+  },
 };
 
 export const projectsContent: ProjectContent[] = [
@@ -121,16 +149,25 @@ export const projectsContent: ProjectContent[] = [
     title: 'NeoVim Config',
     description:
       'A neovim configuration that I use for my development. It is built using Lua and Lazy.',
-    image: '',
+    image: 'null', // TODO: add image
     link: 'https://github.com/kjunghoan/nvim',
     type: 'config',
     tags: [tags.lua, tags.nvim, tags.lazy],
   },
+  // {
+  //   title: '',
+  //   description:
+  //     '',
+  //   image: '',
+  //   link: '',
+  //   type: '',
+  //   tags: [],
+  // },
   {
     title: 'Alki',
     description:
       'Alki is a platform that uses spaced repetition to helps students and engineers study data-structures and algorithms. It provides a variety of resources and tools to help students study effectively.',
-    image: '/assets/images/alki.png',
+    image: 'null', //TODO: add image
     link: 'https://www.alkiprep.com/',
     type: 'full-stack',
     tags: [tags.react, tags.typescript, tags.spring, tags.mongodb],
@@ -139,9 +176,86 @@ export const projectsContent: ProjectContent[] = [
     title: 'PortfolioSite',
     description:
       'A portfolio site to showcase my projects and skills. It is built using React and tailwindcss.',
-    image: '/assets/images/alki.png',
+    image: 'null', //TODO: add image
     link: 'https://github.com/kjunghoan/portfolioSite',
-    type: 'frontend',
+    type: 'front-end',
     tags: [tags.react, tags.typescript, tags.tailwind, tags.threejs, tags.vite],
+  },
+  {
+    title: 'ZMK Config (Corne 42)',
+    description:
+      'A ZMK configuration for my Corne 42 keyboard. This is my primary keyboard for day to day work.',
+    image: 'null', //TODO: add image
+    link: 'https://github.com/kjunghoan/zmk-config',
+    type: 'config',
+    tags: [tags.zmk],
+  },
+  {
+    title: 'Apt World',
+    description:
+      'A debian package to see what the user has explicitly installed on their system.',
+    image: 'null', //TODO: add image
+    link: 'https://github.com/kjunghoan/apt-world-kjh',
+    type: 'other',
+    tags: [tags.python],
+  },
+  {
+    title: 'Git Config',
+    description: 'A git configuration that I use for my development.',
+    image: 'null', //TODO: add image
+    link: 'https://github.com/kjunghoan/git',
+    type: 'config',
+    tags: [tags.git],
+  },
+  {
+    title: 'Toolbox',
+    description:
+      'A collection of docker compose files that I tend to use or reference for my projects.',
+    image: 'null', //TODO: add image
+    link: 'https://github.com/kjunghoan/tools',
+    type: 'other',
+    tags: [tags.docker],
+  },
+  {
+    title: 'Rag Chat',
+    description:
+      'A chat application that uses LLMs along with a vector store to generate responses.',
+    image: 'null', //TODO: add image
+    link: 'https://github.com/kjunghoan/rag',
+    type: 'full-stack',
+    tags: [tags.react, tags.typescript, tags.pinecone, tags.postgresql],
+  },
+  {
+    title: 'Ecommerce Microservices Backend',
+    description:
+      'A microservices backend for an e-commerce application. It is built using Spring and uses Keycloak for auth.',
+    image: 'null', //TODO: add image
+    link: 'https://github.com/kjunghoan/microservice-new',
+    type: 'back-end',
+    tags: [tags.spring, tags.mysql, tags.mongodb],
+  },
+  {
+    title: 'Inventory Management App',
+    description: 'A serverless inventory management app',
+    image: 'null', //TODO: add image
+    link: 'https://github.com/kjunghoan/inventory-management-app',
+    type: 'front-end',
+    tags: [tags.react, tags.firebase, tags.nextjs],
+  },
+  {
+    title: 'Echos',
+    description:
+      'A location based note app similar to placing messages in a bottle or geocaching.',
+    image: 'null', //TODO: add image
+    link: 'https://github.com/kjunghoan/echos',
+    type: 'full-stack',
+    tags: [
+      tags.typescript,
+      tags.react,
+      tags.nextjs,
+      tags.postgresql,
+      tags.prisma,
+      tags.sass,
+    ],
   },
 ];

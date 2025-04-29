@@ -118,6 +118,25 @@ const ProjectsSection: React.FC = () => {
               )}
             </SwiperSlide>
           ))}
+          <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center text-white text-sm">
+            <div className="flex items-center gap-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+              <span>Swipe or shift scroll to see more projects</span>
+            </div>
+          </div>
         </Swiper>
       );
     }

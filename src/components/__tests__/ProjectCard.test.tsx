@@ -94,9 +94,9 @@ describe('ProjectCard', () => {
     // Test each type individually
     testType('config', '#ff796C');
     testType('full-stack', '#546778');
-    testType('front-end', '#fff3e0');
+    testType('front-end', '#bd6e0e');
     testType('back-end', '#87AA82');
-    testType('unknown', '#f5f5dc');
+    testType('unknown', '#9c27b0');
   });
 
   it('applies mobile styling when on mobile devices', () => {

@@ -10,7 +10,7 @@ interface BookshelfContainerProps {
 
 const BookshelfContainer = forwardRef<HTMLDivElement, BookshelfContainerProps>(
   ({ children, className = '', style = {}, id }, ref) => {
-    const { isMobile } = useResponsive();
+    const { isMobile, isTablet } = useResponsive();
 
     return (
       <div
@@ -18,11 +18,12 @@ const BookshelfContainer = forwardRef<HTMLDivElement, BookshelfContainerProps>(
         ref={ref}
         className={`relative w-full ${className}`}
         style={{
-          minHeight: isMobile ? '250vh' : '100vh',
-          overflowY: isMobile ? 'auto' : 'hidden',
+          minHeight: isMobile ? '250vh' : isTablet ? '150vh' : '100vh',
+          overflowY: isMobile || isTablet ? 'auto' : 'hidden',
           ...style,
         }}
         data-is-mobile={isMobile}
+        data-is-tablet={isTablet}
       >
         {children}
       </div>

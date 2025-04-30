@@ -5,20 +5,74 @@ import SectionWrapper from '@/components/SectionWrapper';
 import useResponsive from '@/hooks/useResponsive';
 import Bookshelf from './Bookshelf';
 import BookshelfContainer from './BookshelfContainer';
+import BooksContainer from './BooksContainer';
 
 const BookshelfSection: React.FC = () => {
-  const { isMobile, windowHeight, windowWidth } = useResponsive();
+  const { isMobile, isTablet, windowHeight, windowWidth } = useResponsive();
 
-  console.log('Window Height:', windowHeight);
-  // 1294 at 2560x1440
-  // 915 at 412x915 (mobile)
-  console.log('Window Width:', windowWidth);
-  // 2560 at 2560x1440
-  // 412 at 412x915 (mobile)
+  // Yes I know I can just do all of this inline
+  const canvasHeight = () => {
+    if (isMobile) {
+      return '250vh';
+    } else if (isTablet) {
+      return '150vh';
+    } else {
+      return '100vh';
+    }
+  };
+
+  const bookshelfWidth = () => {
+    if (isMobile) {
+      return windowWidth * 0.00156;
+    } else if (isTablet) {
+      return windowWidth * 0.0017;
+    } else {
+      return windowWidth * 0.00253;
+    }
+  };
+
+  const bookshelfHeight = () => {
+    if (isMobile) {
+      return windowHeight * 0.00391;
+    } else if (isTablet) {
+      return windowHeight * 0.00254;
+    } else {
+      return windowHeight * 0.00253;
+    }
+  };
+  const bookshelfThickness = () => {
+    if (isMobile) {
+      return windowWidth * 0.00007;
+    } else if (isTablet) {
+      return Math.max(windowWidth * 0.00005, 0.1);
+    } else {
+      return Math.max(windowWidth * 0.00005, 0.1);
+    }
+  };
+
+  const bookshelfDepth = () => {
+    if (isMobile) {
+      return 0.4;
+    } else if (isTablet) {
+      return 0.75;
+    } else {
+      return 1;
+    }
+  };
+
+  const bookshelfNumberOfShelves = () => {
+    if (isMobile) {
+      return 4;
+    } else if (isTablet) {
+      return 3;
+    } else {
+      return 1;
+    }
+  };
 
   return (
     <SectionWrapper
-      fullHeight={!isMobile}
+      fullHeight={!isMobile && !isTablet}
       className="flex-center bg-neutral-100 dark:bg-neutral-900"
       id="bookshelf"
     >
@@ -27,10 +81,10 @@ const BookshelfSection: React.FC = () => {
           shadows
           style={{
             width: '100vw',
-            height: isMobile ? '250vh' : '100vh',
+            height: canvasHeight(),
           }}
         >
-          {/* Adjusted camera position for mobile */}
+          {/* Adjusted camera position for different screen sizes */}
           <PerspectiveCamera
             makeDefault
             position={[0, 0, 5]}
@@ -51,10 +105,20 @@ const BookshelfSection: React.FC = () => {
 
           {/* Responsive bookshelf with dimensions based on viewport */}
           <Bookshelf
-            width={isMobile ? 0.63 : windowWidth * 0.00253}
-            height={isMobile ? 3.46 : windowHeight * 0.00253}
-            thickness={isMobile ? 0.05 : Math.max(windowWidth * 0.00005, 0.1)}
-            depth={isMobile ? 0.4 : 1}
+            width={bookshelfWidth()}
+            height={bookshelfHeight()}
+            thickness={bookshelfThickness()}
+            depth={bookshelfDepth()}
+            numberOfShelves={bookshelfNumberOfShelves()}
+          />
+
+          {/* Books on shelves */}
+          <BooksContainer
+            width={bookshelfWidth()}
+            height={bookshelfHeight()}
+            depth={bookshelfDepth()}
+            thickness={bookshelfThickness()}
+            numberOfShelves={bookshelfNumberOfShelves()}
           />
         </Canvas>
       </BookshelfContainer>

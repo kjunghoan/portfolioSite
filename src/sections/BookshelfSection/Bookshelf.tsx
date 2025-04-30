@@ -7,6 +7,7 @@ interface BookshelfProps {
   height: number;
   thickness: number;
   depth: number;
+  numberOfShelves?: number;
 }
 
 const Bookshelf: React.FC<BookshelfProps> = ({
@@ -14,6 +15,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({
   height,
   thickness,
   depth,
+  numberOfShelves = 1,
 }) => {
   const position: Vector3Tuple = [0, 0, 0];
 
@@ -21,6 +23,33 @@ const Bookshelf: React.FC<BookshelfProps> = ({
   const frameColor = '#32CD32'; // Green
   const backColor = '#1E90FF'; // Blue
   const shelfColor = '#FF4500'; // Orange-red
+
+  const generateShelves = () => {
+    if (numberOfShelves <= 0) return null;
+    const shelves = [];
+    const internalHeight = height - thickness * 2;
+    const shelfDistance = internalHeight / (numberOfShelves + 1);
+
+    // Create each shelf
+    for (let i = 1; i <= numberOfShelves; i++) {
+      // Calculate y position (starting from bottom)
+      const yPos = -height / 2 + thickness + shelfDistance * i;
+
+      shelves.push(
+        <Box
+          key={`shelf-${i}`}
+          position={[0, yPos, 0]}
+          args={[width - thickness * 2, thickness, depth - thickness]}
+          castShadow
+          receiveShadow
+        >
+          <meshStandardMaterial color={shelfColor} />
+        </Box>,
+      );
+    }
+
+    return shelves;
+  };
 
   return (
     <group position={position}>
@@ -74,15 +103,8 @@ const Bookshelf: React.FC<BookshelfProps> = ({
         <meshStandardMaterial color={frameColor} />
       </Box>
 
-      {/* Middle shelf */}
-      <Box
-        position={[0, 0, 0]}
-        args={[width - thickness * 2, thickness, depth - thickness]}
-        castShadow
-        receiveShadow
-      >
-        <meshStandardMaterial color={shelfColor} />
-      </Box>
+      {/* Shelves */}
+      {generateShelves()}
     </group>
   );
 };

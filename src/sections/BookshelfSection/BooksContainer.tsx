@@ -1,114 +1,108 @@
-import React, { JSX } from 'react';
-import { createBook } from './Book';
-import { Book as BookType } from '@/types/threejsTypes';
+import { JSX } from 'react';
+import createBook from './createBook';
+import { CombinedSkill } from '@/types/dataTypes';
+import useResponsive from '@/hooks/useResponsive';
+import { bookDimensions, bookPositions } from './BookPositions';
 
 interface BooksContainerProps {
-  width: number;
-  height: number;
-  depth: number;
-  thickness: number;
+  bookshelfWidth: number;
+  bookshelfHeight: number;
+  bookshelfDepth: number;
+  shelfThickness: number;
   numberOfShelves: number;
-  books?: BookType[];
+  skills: Record<string, CombinedSkill>;
 }
 
-const BooksContainer: React.FC<BooksContainerProps> = ({
-  width,
-  height,
-  depth,
-  thickness,
-  numberOfShelves,
-  books = [],
-}) => {
-  // Debug depth value (to fix unused variable linting error)
-  console.log('Bookshelf depth:', depth);
-  // Generate demo books if none are provided
-  const generateDemoBooks = (): JSX.Element[] => {
-    const demoBooks: JSX.Element[] = [];
+const BooksContainer: React.FC<BooksContainerProps> = ({ skills }) => {
+  const { isMobile, isTablet } = useResponsive();
+  const positions = bookPositions;
 
-    // Calculate shelf positions (including bottom frame as shelf 0)
-    const shelfPositions: number[] = [];
-    const internalHeight = height - thickness * 2;
+  // Get book dimensions based on type and screen size
+  const getBookDimensions = (type: string) => {
+    const dimensions = bookDimensions;
+    // Use the appropriate dimensions based on device type
+    if (isMobile) {
+      return dimensions.mobile[type] || dimensions.mobile.other;
+    } else if (isTablet) {
+      return dimensions.tablet[type] || dimensions.tablet.other;
+    }
+    return dimensions.desktop[type] || dimensions.desktop.other;
+  };
 
-    // Add bottom shelf position
-    shelfPositions.push(-height / 2 + thickness);
-
-    // Add additional shelf positions
-    if (numberOfShelves > 0) {
-      const shelfDistance = internalHeight / (numberOfShelves + 1);
-      for (let i = 1; i <= numberOfShelves; i++) {
-        shelfPositions.push(-height / 2 + thickness + shelfDistance * i);
-      }
+  // For mobile and tablet, we'll implement scaling later
+  // For desktop, we use the original positions without scaling
+  const getPosition = (
+    position: [number, number, number],
+  ): [number, number, number] => {
+    // For desktop view, return the original position
+    if (!isMobile && !isTablet) {
+      return position;
     }
 
-    // Add some books to each shelf
-    shelfPositions.forEach((shelfY) => {
-      // Determine how many books to put on this shelf (random between 3-7)
-      const bookCount = Math.floor(Math.random() * 5) + 3;
+    // For mobile and tablet, we'll implement device-specific positioning later
+    // For now, just return the original position
+    return position;
+  };
 
-      // Calculate available width for books (accounting for shelf edges)
-      const availableWidth = width - thickness * 2 - 0.03; // Small margin
+  // Create a book from skill data using predefined positions
+  const createBookFromSkill = (
+    skillKey: string,
+    skill: CombinedSkill,
+  ): JSX.Element | null => {
+    // Check if we have predefined position for this skill
+    if (!positions[skillKey]) {
+      // If no position is defined, do not create a book
+      return null;
+    }
 
-      // Track current position as we place books
-      let currentX = -availableWidth / 2;
+    // Get position data based on device type
+    const deviceType = isMobile ? 'mobile' : isTablet ? 'tablet' : 'desktop';
+    const positionData =
+      positions[skillKey][deviceType] || positions[skillKey].desktop;
 
-      for (let i = 0; i < bookCount; i++) {
-        // Randomize book dimensions - much larger relative to shelves
-        const bookWidth = Math.random() * 0.22 + 0.15; // 0.15 to 0.37
-        const bookHeight = Math.random() * 0.35 + 0.3; // 0.3 to 0.65
-        const bookDepth = Math.random() * 0.1 + 0.15; // 0.15 to 0.25
+    if (!positionData) {
+      console.log(`No ${deviceType} position defined for skill: ${skillKey}`);
+      return null;
+    }
 
-        // Position on shelf (y position is shelf + half book height)
-        const bookY = shelfY + thickness / 2 + bookHeight / 2;
+    // Get dimensions based on skill type
+    const dimensions = getBookDimensions(skill.type);
 
-        // Decide if book is standing or leaning
-        const isStanding = Math.random() > 0.2; // 80% chance of standing
+    // Get the appropriate position based on device type
+    const bookPosition = getPosition(positionData.position);
 
-        if (isStanding) {
-          // Standing book
-          demoBooks.push(
-            createBook({
-              width: bookWidth,
-              height: bookHeight,
-              depth: bookDepth,
-              position: [currentX + bookWidth / 2, bookY, 0],
-              rotation: [0, 0, 0],
-            }),
-          );
+    // Create book with skill data and position
+    return createBook({
+      id: `${skill.type}-book-${skill.title}`,
+      title: skill.title,
+      logo: skill.logo,
+      link: skill.link,
+      type: skill.type,
+      width: dimensions.width,
+      height: dimensions.height,
+      depth: dimensions.depth,
+      position: bookPosition,
+      rotation: positionData.rotation,
+    });
+  };
 
-          currentX += bookWidth + 0.01; // Small gap between books
-        } else {
-          // Leaning book
-          const leanAngle =
-            (Math.random() * 0.3 + 0.1) * (Math.random() > 0.5 ? 1 : -1);
-          demoBooks.push(
-            createBook({
-              width: bookWidth,
-              height: bookHeight,
-              depth: bookDepth,
-              position: [currentX + bookWidth / 2, bookY - bookHeight * 0.1, 0],
-              rotation: [0, 0, leanAngle],
-            }),
-          );
+  // Create books from all skills with defined positions
+  const createBooksFromSkills = (): JSX.Element[] => {
+    const books: JSX.Element[] = [];
 
-          currentX += bookWidth * 0.8 + 0.01; // Leaning books take less space
-        }
-
-        // Stop adding books if we've filled the shelf
-        if (currentX > availableWidth / 2 - 0.1) break;
+    // Process each skill
+    Object.entries(skills).forEach(([key, skill]) => {
+      const book = createBookFromSkill(key, skill);
+      if (book) {
+        books.push(book);
       }
     });
 
-    return demoBooks;
+    return books;
   };
 
-  // Render custom books or demo books
-  return (
-    <group>
-      {books.length > 0
-        ? books.map((book) => createBook(book))
-        : generateDemoBooks()}
-    </group>
-  );
+  // Render the books
+  return <group>{createBooksFromSkills()}</group>;
 };
 
 export default BooksContainer;

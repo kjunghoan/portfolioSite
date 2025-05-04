@@ -25,6 +25,7 @@ const createBook = (config: Partial<BookType>): JSX.Element => {
       id={bookConfig.id}
       title={bookConfig.title}
       book={bookConfig}
+      logo={bookConfig.logo}
       position={bookConfig.position}
       rotation={bookConfig.rotation}
     />

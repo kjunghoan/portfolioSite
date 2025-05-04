@@ -1,6 +1,7 @@
-import { Box, Text } from '@react-three/drei';
+import { Box, Text, Plane, useTexture } from '@react-three/drei';
 import { Vector3Tuple } from 'three';
 import { Book as BookType } from '@/types/threejsTypes';
+import { useEffect, useState } from 'react';
 
 interface BookProps {
   book: BookType;
@@ -9,6 +10,7 @@ interface BookProps {
   id: string;
   title: string;
   shelfIndex?: number;
+  logo?: string;
 }
 
 const Book: React.FC<BookProps> = ({
@@ -17,10 +19,25 @@ const Book: React.FC<BookProps> = ({
   rotation = [0, 0, 0],
   id,
   title,
+  logo = '/assets/skills/placeholder.svg',
 }) => {
   const { width, height, depth, type } = book;
-  // TODO: change debugging colors
-  // TODO: add logo to book spines
+  const [logoLoaded, setLogoLoaded] = useState(false);
+
+  // Preload texture to check if it exists
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => setLogoLoaded(true);
+    img.onerror = () => setLogoLoaded(false);
+    img.src = logo;
+  }, [logo]);
+
+  // Load texture when needed
+  const logoTexture = useTexture(
+    logoLoaded ? logo : '/assets/skills/placeholder.svg',
+  );
+
+  // Book color based on type
   const bookColor = (type: string) => {
     switch (type) {
       case 'language':
@@ -33,13 +50,13 @@ const Book: React.FC<BookProps> = ({
         return '#81C784'; // Green
       case 'cloud':
         return '#FFD54F'; // Yellow
-      case 'backend-service':
+      case 'backend_service':
         return '#FFCC80'; // Light Orange
       case 'orm':
         return '#A5D6A7'; // Light Green
-      case 'version-control':
+      case 'version_control':
         return '#F48FB1'; // Light Pink
-      case 'text-editor':
+      case 'text_editor':
         return '#CE93D8'; // Light Purple
       case 'proxy':
         return '#80CBC4'; // Light Teal
@@ -55,6 +72,11 @@ const Book: React.FC<BookProps> = ({
         return '#FF5252'; // Default to red if type not found
     }
   };
+
+  // Calculate size and positions
+  const logoSize = width * 0.65; // Make logo slightly smaller than book spine width
+  const logoPosition = height * 0.35; // Position from bottom of book (35% up from bottom)
+
   return (
     <group name={id}>
       {/* Book body */}
@@ -122,7 +144,7 @@ const Book: React.FC<BookProps> = ({
         <meshBasicMaterial color="black" wireframe={true} />
       </Box>
 
-      {/* Book spine text */}
+      {/* Group for spine content */}
       <group
         position={[position[0], position[1], position[2] + depth / 2 + 0.001]}
         rotation={rotation}
@@ -138,8 +160,24 @@ const Book: React.FC<BookProps> = ({
           anchorY="middle"
           depthOffset={-1} // Ensure text renders above background
         >
-          {title.length > 10 ? title.substring(0, 10) + '...' : title}
+          {title}
         </Text>
+
+        {/* Logo at bottom of spine */}
+        {logoLoaded && (
+          <Plane
+            position={[0, -logoPosition, 0.003]} // Position near bottom of spine
+            rotation={[0, 0, 0]} // No rotation needed
+            args={[logoSize, logoSize]} // Square proportions for logo
+          >
+            <meshBasicMaterial
+              map={logoTexture}
+              transparent={true}
+              toneMapped={false}
+              color="#FFFFFF" // White to preserve logo colors
+            />
+          </Plane>
+        )}
       </group>
     </group>
   );

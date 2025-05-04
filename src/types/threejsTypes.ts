@@ -4,7 +4,7 @@ import { SkillContent } from './dataTypes';
 export interface Book extends SkillContent {
   id: string;
   position: Vector3Tuple;
-  width: number;
+  width: number; // The width is the spine thickness
   height: number;
   depth: number;
   rotation: Vector3Tuple;

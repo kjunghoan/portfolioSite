@@ -71,12 +71,12 @@ export const skills: Record<string, CombinedSkill> = {
     color: '#2C2D72',
   },
 
-  // Frameworks
+  // Libraries
   react: {
     title: 'React',
     link: 'https://reactjs.org/',
     logo: '/assets/skills/react.svg',
-    type: 'framework',
+    type: 'library',
     color: '#61DAFB',
   },
   nextjs: {
@@ -141,7 +141,7 @@ export const skills: Record<string, CombinedSkill> = {
     title: 'Prisma',
     link: 'https://www.prisma.io/',
     logo: '/assets/skills/prisma.svg',
-    type: 'database',
+    type: 'orm',
     color: '#2D3748',
   },
   pinecone: {
@@ -164,11 +164,18 @@ export const skills: Record<string, CombinedSkill> = {
     title: 'Firebase',
     link: 'https://firebase.google.com/',
     logo: '/assets/skills/firebase.svg',
-    type: 'cloud',
+    type: 'backend_service',
     color: '#FFCA28',
   },
 
   // Tools
+  kubernetes: {
+    title: 'Kubernetes',
+    link: 'https://kubernetes.io/',
+    logo: '/assets/skills/kubernetes.svg',
+    type: 'tool',
+    color: '#326CE5',
+  },
   docker: {
     title: 'Docker',
     link: 'https://www.docker.com/',
@@ -180,14 +187,14 @@ export const skills: Record<string, CombinedSkill> = {
     title: 'Git',
     link: 'https://git-scm.com/',
     logo: '/assets/skills/git.svg',
-    type: 'tool',
+    type: 'version_control',
     color: '#F05032',
   },
   nvim: {
     title: 'Neovim',
     link: 'https://neovim.io/',
     logo: '/assets/skills/neovim.svg',
-    type: 'tool',
+    type: 'text_editor',
     color: '#57A143',
   },
   vite: {
@@ -203,6 +210,13 @@ export const skills: Record<string, CombinedSkill> = {
     logo: '/assets/skills/threejs.svg',
     type: 'tool',
     color: '#000000',
+  },
+  jenkins: {
+    title: 'Jenkins',
+    link: 'https://www.jenkins.io/',
+    logo: '/assets/skills/jenkins.svg',
+    type: 'tool',
+    color: '#D24939',
   },
 
   // Miscellaneous
@@ -234,12 +248,26 @@ export const skills: Record<string, CombinedSkill> = {
     type: 'tool',
     color: '#2C2D72',
   },
-  yarn: {
-    title: 'Yarn',
-    link: 'https://yarnpkg.com/',
-    logo: '/assets/skills/yarn.svg',
-    type: 'tool',
-    color: '#2C8EBB',
+  bash: {
+    title: 'Bash',
+    link: 'https://www.gnu.org/software/bash/',
+    logo: '/assets/skills/bash.svg',
+    type: 'misc',
+    color: '#4EAA25',
+  },
+  nginx: {
+    title: 'Nginx',
+    link: 'https://nginx.org/',
+    logo: '/assets/skills/nginx.svg',
+    type: 'proxy',
+    color: '#009639',
+  },
+  traefik: {
+    title: 'Traefik',
+    link: 'https://traefik.io/',
+    logo: '/assets/skills/traefik.svg',
+    type: 'proxy',
+    color: '#24A1C1',
   },
 };
 
@@ -269,7 +297,7 @@ export const projectsContent: ProjectContent[] = [
     image: 'null', //TODO: add image
     link: 'https://www.alkiprep.com/',
     type: 'full-stack',
-    tags: [skills.react, skills.typescript, skills.spring, skills.mongodb],
+    tags: [],
   },
   {
     title: 'PortfolioSite',

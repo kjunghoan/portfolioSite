@@ -30,12 +30,18 @@ export interface SkillContent extends SkillBase {
   type:
     | 'language'
     | 'framework'
+    | 'library'
     | 'database'
     | 'cloud'
     | 'tool'
     | 'misc'
     | 'platform'
-    | 'other';
+    | 'other'
+    | 'version_control'
+    | 'text_editor'
+    | 'orm'
+    | 'proxy'
+    | 'backend_service';
 }
 
 export interface Tag extends SkillBase {
@@ -50,11 +56,17 @@ export interface CombinedSkill {
   type:
     | 'language'
     | 'framework'
+    | 'library'
     | 'database'
     | 'cloud'
     | 'tool'
     | 'misc'
     | 'platform'
-    | 'other';
+    | 'other'
+    | 'version_control'
+    | 'text_editor'
+    | 'orm'
+    | 'proxy'
+    | 'backend_service';
   color: string;
 }

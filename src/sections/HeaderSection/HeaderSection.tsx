@@ -51,11 +51,11 @@ const HeaderSection: React.FC = () => {
   return (
     <SectionWrapper
       fullHeight={true}
-      className="flex-center"
+      className="flex-center bg-paper-texture"
       style={{}}
       id="header"
     >
-      <div className="relative z-10 flex-center-col h-full min-h-full px-4 text-center">
+      <div className="relative z-1 flex-center-col h-full min-h-full px-4 text-center">
         <h1
           className={`font-bold text-accent-green transition-all duration-300 ${isMobile ? 'text-3xl' : 'text-5xl'}`}
         >

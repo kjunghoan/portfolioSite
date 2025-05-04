@@ -4,6 +4,47 @@
   --color-accent-green: #4a5d39;
   --color-wood-one: #8b5a2b;
   --color-wood-two: #5d3b1f;
+  --color-paper: #f5f5f0;
+}
+
+/* Wood texture overlays that preserve the original background colors */
+.bg-wood-one-texture {
+  background-image: url('/assets/textures/wood_texture.png');
+  background-repeat: repeat;
+  background-size: cover;
+  background-color: var(--color-wood-one);
+  background-position: center;
+}
+
+.bg-wood-two-texture {
+  background-image: url('/assets/textures/wood_texture.png');
+  background-repeat: repeat;
+  background-size: cover;
+  background-color: var(--color-wood-two);
+  background-position: center;
+}
+
+/* Paper texture background for header */
+.bg-paper-texture {
+  position: relative;
+  background-color: var(--color-paper);
+}
+
+/* Using pseudo-element for the texture allows opacity control */
+.bg-paper-texture::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/textures/paperTexture.png');
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3; /* 100% opacity, change to 0.8 for 80% opacity, etc. */
+  z-index: 0;
+  pointer-events: none; /* Let clicks pass through to elements underneath */
 }
 
 /* Hide scrollbars across the entire site */

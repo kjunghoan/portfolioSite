@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box } from '@react-three/drei';
+import { Box, useTexture } from '@react-three/drei';
 import { Vector3Tuple } from 'three';
+import * as THREE from 'three';
 
 interface BookshelfProps {
   width: number;
@@ -19,10 +20,41 @@ const Bookshelf: React.FC<BookshelfProps> = ({
 }) => {
   const position: Vector3Tuple = [0, 0, 0];
 
-  // TODO: change debugging colors to woodtones
-  const frameColor = '#32CD32'; // Green
-  const backColor = '#1E90FF'; // Blue
-  const shelfColor = '#FF4500'; // Orange-red
+  // Load wood texture
+  const woodTexture = useTexture('/assets/textures/wood_texture.png');
+
+  // Configure texture to use full image size
+  woodTexture.wrapS = woodTexture.wrapT = THREE.ClampToEdgeWrapping;
+  // No repeat needed - will use full image
+
+  // We'll reduce texture intensity through material properties
+
+  // Material settings
+  const frameColor = '#AC8F6C';
+  const shelfColor = '#D4B692';
+  const frameMaterialProps = {
+    map: woodTexture,
+    color: frameColor,
+    roughness: 0.7,
+    metalness: 0.05,
+    bumpMap: woodTexture,
+    bumpScale: 0.006,
+    // Apply texture mapping for full coverage
+    emissiveIntensity: 0.05,
+    emissive: frameColor,
+  };
+
+  const shelfMaterialProps = {
+    map: woodTexture,
+    color: shelfColor,
+    roughness: 0.65,
+    metalness: 0.03,
+    bumpMap: woodTexture,
+    bumpScale: 0.006,
+    // Apply texture mapping for full coverage
+    emissiveIntensity: 0.05,
+    emissive: shelfColor,
+  };
 
   const generateShelves = () => {
     if (numberOfShelves <= 0) return null;
@@ -43,7 +75,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({
           castShadow
           receiveShadow
         >
-          <meshStandardMaterial color={shelfColor} />
+          <meshStandardMaterial {...shelfMaterialProps} />
         </Box>,
       );
     }
@@ -60,7 +92,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({
         castShadow
         receiveShadow
       >
-        <meshStandardMaterial color={backColor} />
+        <meshStandardMaterial {...frameMaterialProps} />
       </Box>
 
       {/* Bottom frame */}
@@ -70,7 +102,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({
         castShadow
         receiveShadow
       >
-        <meshStandardMaterial color={frameColor} />
+        <meshStandardMaterial {...frameMaterialProps} />
       </Box>
 
       {/* Top frame */}
@@ -80,7 +112,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({
         castShadow
         receiveShadow
       >
-        <meshStandardMaterial color={frameColor} />
+        <meshStandardMaterial {...frameMaterialProps} />
       </Box>
 
       {/* Left side */}
@@ -90,7 +122,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({
         castShadow
         receiveShadow
       >
-        <meshStandardMaterial color={frameColor} />
+        <meshStandardMaterial {...frameMaterialProps} />
       </Box>
 
       {/* Right side */}
@@ -100,7 +132,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({
         castShadow
         receiveShadow
       >
-        <meshStandardMaterial color={frameColor} />
+        <meshStandardMaterial {...frameMaterialProps} />
       </Box>
 
       {/* Shelves */}

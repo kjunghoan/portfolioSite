@@ -44,7 +44,7 @@ const AboutMeSection: React.FC = () => {
   return (
     <SectionWrapper
       fullHeight={true}
-      className={`bg-wood-one ${isMobile ? 'px-5' : 'p-20'}`}
+      className={`bg-wood-one-texture ${isMobile ? 'px-5' : 'p-20'}`}
       style={{}}
       id="aboutMe"
     >

@@ -348,7 +348,7 @@ const bookPositions: Record<string, BookPosition> = {
   //  // database
   postgresql: {
     desktop: {
-      position: [-2.9, -0.99, 0],
+      position: [-2.9, -1.1, 0],
       rotation: [0, 0, 0.1],
     },
     tablet: {
@@ -362,7 +362,7 @@ const bookPositions: Record<string, BookPosition> = {
   },
   mongodb: {
     desktop: {
-      position: [-2.59, -1, 0.1],
+      position: [-2.59, -1.1, 0.1],
       rotation: [0, 0, 0.1],
     },
     tablet: {
@@ -376,7 +376,7 @@ const bookPositions: Record<string, BookPosition> = {
   },
   mysql: {
     desktop: {
-      position: [-2.25, -0.99, 0],
+      position: [-2.25, -1.09, 0],
       rotation: [0, 0, 0.2],
     },
     tablet: {
@@ -390,7 +390,7 @@ const bookPositions: Record<string, BookPosition> = {
   },
   pinecone: {
     desktop: {
-      position: [-1.4, -1.36, 0],
+      position: [-1.4, -1.48, 0],
       rotation: [0, 0.08, pi / 2],
     },
     tablet: {
@@ -405,7 +405,7 @@ const bookPositions: Record<string, BookPosition> = {
   //  // infrastructure
   kubernetes: {
     desktop: {
-      position: [-1.4, -1.1, 0],
+      position: [-1.4, -1.21, 0],
       rotation: [0, -0.1, pi / 2],
     },
     tablet: {
@@ -419,7 +419,7 @@ const bookPositions: Record<string, BookPosition> = {
   },
   docker: {
     desktop: {
-      position: [-1.4, -0.88, 0],
+      position: [-1.4, -0.98, 0],
       rotation: [0, 0.1, pi / 2],
     },
     tablet: {
@@ -447,7 +447,7 @@ const bookPositions: Record<string, BookPosition> = {
   },
   jenkins: {
     desktop: {
-      position: [-0.75, -1, 0],
+      position: [-0.75, -1.1, 0],
       rotation: [0, 0, 0],
     },
     tablet: {
@@ -462,7 +462,7 @@ const bookPositions: Record<string, BookPosition> = {
   //  // virtualization
   proxmox: {
     desktop: {
-      position: [1.88, -1, 0],
+      position: [1.88, -1.12, 0],
       rotation: [0, 0, -0.4],
     },
     tablet: {
@@ -476,7 +476,7 @@ const bookPositions: Record<string, BookPosition> = {
   },
   ceph: {
     desktop: {
-      position: [2.6, -1, 0],
+      position: [2.6, -1.12, 0],
       rotation: [0, 0, -0.3],
     },
     tablet: {
@@ -492,7 +492,7 @@ const bookPositions: Record<string, BookPosition> = {
   git: {
     // TODO
     desktop: {
-      position: [-1.4, -0.7, 0],
+      position: [-1.4, -0.77, 0],
       rotation: [0, -0.15, pi / 2],
     },
     tablet: {
@@ -507,7 +507,7 @@ const bookPositions: Record<string, BookPosition> = {
   nvim: {
     // TODO
     desktop: {
-      position: [0.1, -1.42, 0],
+      position: [0.1, -1.55, 0],
       rotation: [0, 0, pi / 2],
     },
     tablet: {
@@ -521,7 +521,7 @@ const bookPositions: Record<string, BookPosition> = {
   },
   nginx: {
     desktop: {
-      position: [2.35, -1.05, 0],
+      position: [2.35, -1.15, 0],
       rotation: [0, 0, -0.35],
     },
     tablet: {
@@ -535,7 +535,7 @@ const bookPositions: Record<string, BookPosition> = {
   },
   traefik: {
     desktop: {
-      position: [2.1, -1.06, -0.1],
+      position: [2.1, -1.16, -0.1],
       rotation: [0, 0, -0.4],
     },
     tablet: {
@@ -549,7 +549,7 @@ const bookPositions: Record<string, BookPosition> = {
   },
   bash: {
     desktop: {
-      position: [2.9, -1, 0.1],
+      position: [2.9, -1.1, 0.1],
       rotation: [0, 0, -0.1],
     },
     tablet: {

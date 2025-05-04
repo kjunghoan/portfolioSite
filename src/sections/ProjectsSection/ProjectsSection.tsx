@@ -145,7 +145,7 @@ const ProjectsSection: React.FC = () => {
   return (
     <SectionWrapper
       fullHeight={true}
-      className="overflow-hidden bg-wood-two"
+      className="overflow-hidden bg-wood-two-texture"
       style={{}}
       id="projects"
     >

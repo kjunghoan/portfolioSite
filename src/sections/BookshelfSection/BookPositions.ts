@@ -248,7 +248,7 @@ const bookPositions: Record<string, BookPosition> = {
       rotation: [0, 0, 0],
     },
     tablet: {
-      position: [-0.67, 1.16, 0.025],
+      position: [-0.67, 1.14, 0.02],
       rotation: [0, 0, 0.05],
     },
     mobile: {
@@ -262,7 +262,7 @@ const bookPositions: Record<string, BookPosition> = {
       rotation: [0, 0, 0.15],
     },
     tablet: {
-      position: [-0.5, 1.16, 0],
+      position: [-0.5, 1.14, 0],
       rotation: [0, 0, 0.05],
     },
     mobile: {
@@ -276,7 +276,7 @@ const bookPositions: Record<string, BookPosition> = {
       rotation: [0, 0, 0.27],
     },
     tablet: {
-      position: [-0.33, 1.16, 0],
+      position: [-0.33, 1.14, 0],
       rotation: [0, 0, 0.0525],
     },
     mobile: {
@@ -290,7 +290,7 @@ const bookPositions: Record<string, BookPosition> = {
       rotation: [0, 0, 0.35],
     },
     tablet: {
-      position: [-0.165, 1.16, 0],
+      position: [-0.165, 1.14, 0],
       rotation: [0, 0, 0.055],
     },
     mobile: {
@@ -306,7 +306,7 @@ const bookPositions: Record<string, BookPosition> = {
       rotation: [0, 0, pi / 2],
     },
     tablet: {
-      position: [0.235, 0.95, -0.01],
+      position: [0.235, 0.92, 0.01],
       rotation: [0, 0, pi / 2],
     },
     mobile: {
@@ -320,7 +320,7 @@ const bookPositions: Record<string, BookPosition> = {
       rotation: [0, 0, pi / 2],
     },
     tablet: {
-      position: [0.265, 1.11, -0.01],
+      position: [0.265, 1.09, -0.01],
       rotation: [0, -0.08, pi / 2],
     },
     mobile: {

@@ -7,7 +7,7 @@ export interface Book extends SkillContent {
   width: number; // The width is the spine thickness
   height: number;
   depth: number;
-  rotation: Vector3Tuple;
+  rotation: Vector3Tuple | null;
 }
 
 export interface Decoration {

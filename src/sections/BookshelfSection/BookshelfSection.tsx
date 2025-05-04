@@ -15,19 +15,34 @@ const BookshelfSection: React.FC = () => {
   const { isMobile, isTablet, windowHeight, windowWidth } = useResponsive();
   const DESKTOP_FIXED_WIDTH = 2560; // px
 
+  // Reference device sizes from commit message
+  const referenceWidths = {
+    mobile: 430, // iPhone 14 Pro Max
+    tablet: 1024, // iPad Pro
+    desktop: 2560, // 16:9 chrome browser @4k with bookmarks
+  };
+
+  const referenceHeights = {
+    mobile: 932, // iPhone 14 Pro Max
+    tablet: 1366, // iPad Pro
+    desktop: 1440, // 16:9 chrome browser @4k height estimate
+  };
+
   // Set up drag-to-scroll functionality
   const { containerRef, handlers } = useDragToScroll({
     isMobile,
     isTablet,
   });
 
-  // Calculate bookshelf dimensions
+  // Calculate bookshelf dimensions with reference sizes
   const dimensions = useBookshelfDimensions({
     isMobile,
     isTablet,
     windowWidth,
     windowHeight,
     desktopFixedWidth: DESKTOP_FIXED_WIDTH,
+    referenceWidths,
+    referenceHeights,
   });
 
   // Center the bookshelf on load
@@ -37,6 +52,7 @@ const BookshelfSection: React.FC = () => {
     isTablet,
     windowWidth,
   });
+
   return (
     <SectionWrapper
       fullHeight={!isMobile && !isTablet}

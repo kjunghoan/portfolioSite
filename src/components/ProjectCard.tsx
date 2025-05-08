@@ -9,6 +9,7 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, id }) => {
   const { isMobile } = useResponsive();
   const { title, description, image, link, type, tags } = project;
+  const defaultImage = '/assets/images/gear-icon.svg';
 
   const typeMap = (type: string): string => {
     switch (type) {
@@ -27,6 +28,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, id }) => {
       default: {
         return '#9c27b0'; // Purple
       }
+    }
+  };
+  const imageSrc = (image: string | null) => {
+    if (image) {
+      return image;
+    } else {
+      return defaultImage;
     }
   };
 
@@ -75,7 +83,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, id }) => {
             style={{ height: '40%' }}
           >
             <img
-              src={image}
+              src={imageSrc(image)}
               alt={title}
               className="w-full h-full object-cover"
             />

@@ -4,7 +4,7 @@ import { aboutMeContent, contactContent } from '@/assets/data.ts';
 import { ContactContent } from '@/types/dataTypes';
 
 const AboutMeSection: React.FC = () => {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
   const mapContent = (content: string[]) => {
     return content.map((paragraph, index) => (
       <div key={index}>
@@ -44,19 +44,19 @@ const AboutMeSection: React.FC = () => {
   return (
     <SectionWrapper
       fullHeight={true}
-      className={`bg-wood-one-texture ${isMobile ? 'px-5' : 'p-20'}`}
+      className={`bg-wood-one-texture ${isMobile ? 'p-5' : 'p-20 px-20'}`}
       style={{}}
       id="aboutMe"
     >
       {/* Heading */}
-      <div className="mt-[5vh] flex flex-col items-start ms-5 pt-10">
+      <div className="mt-5 pt-5 flex flex-col items-start ms-5">
         <h1 className="heading-primary mb-2">{aboutMeContent.heading}</h1>
         <h2 className="heading-secondary mb-2 ps-2 underline-offset-8">
           {aboutMeContent.subHeading}
         </h2>
       </div>
       {/* Container */}
-      {isMobile ? (
+      {isTablet || isMobile ? (
         <div
           id="aboutMe-content-container-mobile"
           className="flex flex-col w-full items-center min-h-[70vh] p-4"
@@ -83,15 +83,15 @@ const AboutMeSection: React.FC = () => {
       ) : (
         <div
           id="aboutMe-content-container-desktop"
-          className="grid grid-cols-5 grid-rows-2 gap-4 w-full p-4"
+          className="grid grid-cols-3 gap-4 grid-rows-2 w-full p-4"
         >
           {/* Primary Content - Desktop */}
-          <div className="row-span-2 col-span-3 flex flex-col items-start">
+          <div className="row-span-2 col-span-2 flex flex-col items-start">
             {mapContent(aboutMeContent.content)}
           </div>
 
           {/* HeadShot - Desktop */}
-          <div className="col-span-2 flex justify-center items-center rounded-lg">
+          <div className="col-span-1 flex justify-center items-center rounded-lg">
             <img
               src={aboutMeContent.image}
               alt="About Me"
@@ -100,7 +100,7 @@ const AboutMeSection: React.FC = () => {
           </div>
 
           {/* Socials - Desktop */}
-          <div className="col-span-2 flex flex-row justify-center items-start p-4">
+          <div className="col-span-1 flex flex-row justify-center items-start p-4">
             {mapSocials(contactContent)}
           </div>
         </div>

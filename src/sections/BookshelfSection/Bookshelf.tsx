@@ -25,12 +25,9 @@ const Bookshelf: React.FC<BookshelfProps> = ({
 
   // Configure texture to use full image size
   woodTexture.wrapS = woodTexture.wrapT = THREE.ClampToEdgeWrapping;
-  // No repeat needed - will use full image
-
-  // We'll reduce texture intensity through material properties
 
   // Material settings
-  const frameColor = '#AC8F6C';
+  const frameColor = '#c7a883';
   const shelfColor = '#D4B692';
   const frameMaterialProps = {
     map: woodTexture,
@@ -39,7 +36,6 @@ const Bookshelf: React.FC<BookshelfProps> = ({
     metalness: 0.05,
     bumpMap: woodTexture,
     bumpScale: 0.006,
-    // Apply texture mapping for full coverage
     emissiveIntensity: 0.05,
     emissive: frameColor,
   };
@@ -51,7 +47,6 @@ const Bookshelf: React.FC<BookshelfProps> = ({
     metalness: 0.03,
     bumpMap: woodTexture,
     bumpScale: 0.006,
-    // Apply texture mapping for full coverage
     emissiveIntensity: 0.05,
     emissive: shelfColor,
   };

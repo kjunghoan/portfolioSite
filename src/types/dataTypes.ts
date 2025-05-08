@@ -14,7 +14,7 @@ export interface ContactContent {
 export interface ProjectContent {
   title: string;
   description: string;
-  image: string;
+  image: string | null;
   link: string;
   tags: Tag[];
   type: 'config' | 'full-stack' | 'front-end' | 'back-end' | 'other';

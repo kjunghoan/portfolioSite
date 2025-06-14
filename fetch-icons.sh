@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # Script is now used to minify svgs
 echo "Optimizing SVGs..."

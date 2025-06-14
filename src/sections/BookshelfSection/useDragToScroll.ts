@@ -6,7 +6,7 @@ interface DragToScrollOptions {
 }
 
 interface DragToScrollResult {
-  containerRef: RefObject<HTMLDivElement>;
+  containerRef: RefObject<HTMLDivElement | null>;
   handlers: {
     onMouseDown: (e: React.MouseEvent<HTMLDivElement>) => void;
     onMouseUp: (e: React.MouseEvent<HTMLDivElement>) => void;

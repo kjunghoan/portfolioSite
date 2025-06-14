@@ -27,7 +27,7 @@ const createBook = (config: Partial<BookType>): JSX.Element => {
       book={bookConfig}
       logo={bookConfig.logo}
       position={bookConfig.position}
-      rotation={bookConfig.rotation}
+      rotation={bookConfig.rotation || undefined}
     />
   );
 };

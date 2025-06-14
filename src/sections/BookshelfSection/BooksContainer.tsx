@@ -67,7 +67,7 @@ const BooksContainer: React.FC<BooksContainerProps> = ({ skills }) => {
         height: dimensions.height,
         depth: dimensions.depth,
         position: bookPosition,
-        rotation: bookRotation,
+        rotation: bookRotation || undefined,
       });
     } catch (error) {
       console.warn(`Error creating book for skill: ${skillKey}`, error);

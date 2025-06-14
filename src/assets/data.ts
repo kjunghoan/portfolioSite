@@ -298,7 +298,7 @@ export const projectsContent: ProjectContent[] = [
       'A k3s home lab setup that I use for my personal projects. It is built using Proxmox and Ceph.',
     image: null,
     link: '',
-    type: 'misc',
+    type: 'other',
     tags: [
       skills.proxmox,
       skills.ceph,

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 interface CenterOnLoadOptions {
-  containerRef: React.RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
   isMobile?: boolean;
   isTablet?: boolean;
   windowWidth?: number;

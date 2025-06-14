@@ -21,7 +21,7 @@ describe('ProjectCard', () => {
     description: 'A test project description',
     image: '/test-image.png',
     link: 'https://example.com',
-    type: 'full-stack',
+    type: 'full-stack' as const,
     tags: [
       { title: 'React', color: '#61DAFB', link: 'https://reactjs.org' },
       {
@@ -75,7 +75,10 @@ describe('ProjectCard', () => {
     // Test each project type separately
     const testType = (type: string, expectedColor: string) => {
       // Create a test project with the specified type
-      const testProject = { ...mockProject, type };
+      const testProject = {
+        ...mockProject,
+        type: type as ProjectContent['type'],
+      };
 
       // Render with a unique ID to avoid conflicts
       const uniqueId = `test-${type}`;

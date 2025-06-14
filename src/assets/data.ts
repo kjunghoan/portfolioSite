@@ -10,8 +10,19 @@ export const aboutMeContent: AboutMeContent = {
   subHeading: 'Software Engineer',
   image: '/assets/images/profile-placeholder.svg',
   content: [
-    'lorem ipsum dolor sit amet consectetur adipiscing elit. quisque faucibus ex sapien vitae pellentesque sem placerat. in id cursus mi pretium tellus duis convallis. tempus leo eu aenean sed diam urna tempor. pulvinar vivamus fringilla lacus nec metus bibendum egestas. iaculis massa nisl malesuada lacinia integer nunc posuere. ut hendrerit semper vel class aptent taciti sociosqu. ad litora torquent per conubia nostra inceptos himenaeos.',
-    'lorem ipsum dolor sit amet consectetur adipiscing elit. quisque faucibus ex sapien vitae pellentesque sem placerat. in id cursus mi pretium tellus duis convallis. tempus leo eu aenean sed diam urna tempor. pulvinar vivamus fringilla lacus nec metus bibendum egestas. iaculis massa nisl malesuada lacinia integer nunc posuere. ut hendrerit semper vel class aptent taciti sociosqu. ad litora torquent per conubia nostra inceptos himenaeos.',
+    "Hi, I'm Jung Hoan Kim, a software engineer with a passion for building scalable and efficient \
+    applications. I have experience in full-stack development, cloud computing, and DevOps \
+    practices. I enjoy working on projects that challenge me to learn new technologies, and more\
+    importantly, deepen my understanding of those technologies.\
+    My background is in general engineering and healthcare, which has gives me the foresight to \
+    understand the importance of building modular and maintainable systems while allowing for deep \
+    dives into understanding how each part of a given system operates and contributes to the whole.",
+    "When I'm not internally crying watching Carlos Sainz or KT Rolster finish a weekend in 5-10th \
+    I enjoy tinkering with hardware, building and documenting my personal projects, and building \
+    mechanical keyboards.",
+    "Currently, I'm finishing my migration from a mess of vms and lxcs to a kube cluster running on \
+    Proxmox, before I finally get around to starting personal ai project that I've been putting off for \
+    about 5-7 years now. Let's see how this goes.",
   ],
 };
 

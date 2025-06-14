@@ -7,7 +7,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, id }) => {
-  const { isMobile } = useResponsive();
+  const { isMobile, windowHeight, windowWidth } = useResponsive();
   const { title, description, image, link, type, tags } = project;
   const defaultImage = '/assets/images/gear-icon.svg';
 
@@ -38,12 +38,28 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, id }) => {
     }
   };
 
+  // Calculate content scale based on viewport size
+  const getContentScale = () => {
+    if (isMobile) return 1;
+    // Scale content down for smaller viewports while keeping card proportions
+    if (windowHeight < 800 || windowWidth < 1400) {
+      return 0.85;
+    }
+    return 1;
+  };
+
+  const contentScale = getContentScale();
+
   const mapTags = () => {
     return tags.map((tag, index) => (
       <span
         key={index}
         className="tag-badge"
-        style={{ backgroundColor: tag.color }}
+        style={{
+          backgroundColor: tag.color,
+          fontSize: `${0.75 * contentScale}rem`,
+          padding: `${0.25 * contentScale}rem ${0.5 * contentScale}rem`,
+        }}
         onClick={() => window.open(tag.link, '_blank')}
       >
         {tag.title}
@@ -79,30 +95,62 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, id }) => {
         <div className="absolute left-[15px] right-0 top-0 bottom-0 bg-stone-100 rounded-r-md shadow-lg overflow-hidden flex flex-col pl-2">
           {/* Image section */}
           <div
-            className="flex items-center justify-center py-6"
-            style={{ height: '40%' }}
+            className="flex items-center justify-center"
+            style={{
+              height: '40%',
+              padding: `${1.5 * contentScale}rem`,
+            }}
           >
             <img
               src={imageSrc(image)}
               alt={title}
-              className="w-full h-full object-cover"
+              className="max-w-full max-h-full object-contain"
             />
           </div>
 
           {/* Title with divider */}
-          <div className="px-4 pt-3 pb-2 z-10">
-            <h2 className="text-lg font-semibold">{title}</h2>
-            <div className="w-full h-[2px] my-2 bg-yellow-300" />
+          <div
+            className="z-10"
+            style={{
+              padding: `${0.75 * contentScale}rem ${1 * contentScale}rem ${0.5 * contentScale}rem ${1 * contentScale}rem`,
+            }}
+          >
+            <h2
+              className="font-semibold"
+              style={{ fontSize: `${1.125 * contentScale}rem` }}
+            >
+              {title}
+            </h2>
+            <div
+              className="w-full bg-yellow-300"
+              style={{
+                height: `${2 * contentScale}px`,
+                margin: `${0.5 * contentScale}rem 0`,
+              }}
+            />
           </div>
 
           {/* Content section */}
-          <div className="flex flex-col p-4 pt-0 flex-grow">
-            <p className={`mb-4 ${isMobile ? 'text-md' : 'text-lg'}`}>
+          <div
+            className="flex flex-col pt-0 flex-grow"
+            style={{
+              padding: `0 ${1 * contentScale}rem ${1 * contentScale}rem ${1 * contentScale}rem`,
+            }}
+          >
+            <p
+              style={{
+                fontSize: `${isMobile ? 1 : 1 * contentScale}rem`,
+                marginBottom: `${1 * contentScale}rem`,
+              }}
+            >
               {description}
             </p>
 
             {/* Tags - Two rows layout to match design */}
-            <div className="grid grid-cols-3 gap-1 mt-auto mb-2">
+            <div
+              className="grid grid-cols-3 mt-auto mb-2"
+              style={{ gap: `${0.25 * contentScale}rem` }}
+            >
               {mapTags()}
             </div>
 
@@ -111,7 +159,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, id }) => {
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="self-end px-3 py-1 mt-2 text-sm rounded-full"
+              className="self-end rounded-full"
+              style={{
+                padding: `${0.25 * contentScale}rem ${0.75 * contentScale}rem`,
+                marginTop: `${0.5 * contentScale}rem`,
+                fontSize: `${0.875 * contentScale}rem`,
+              }}
             >
               View Project
             </a>

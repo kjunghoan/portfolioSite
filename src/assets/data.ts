@@ -281,6 +281,23 @@ export const projectsContent: ProjectContent[] = [
     type: 'config',
     tags: [skills.lua, skills.nvim, skills.lazy],
   },
+  {
+    title: 'K3s Home Lab',
+    description:
+      'A k3s home lab setup that I use for my personal projects. It is built using Proxmox and Ceph.',
+    image: null,
+    link: '',
+    type: 'misc',
+    tags: [
+      skills.proxmox,
+      skills.ceph,
+      skills.kubernetes,
+      skills.docker,
+      skills.python,
+      skills.traefik,
+      skills.git,
+    ],
+  },
   // {
   //   title: '',
   //   description:

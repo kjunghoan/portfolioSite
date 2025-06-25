@@ -343,6 +343,14 @@ export const projectsContent: ProjectContent[] = [
     ],
   },
   {
+    title: 'Python AI Project',
+    description: `A personal AI project that I have long term plans for. Currently working on the chat interface.`,
+    link: 'https://github.com/kjunghoan/localRagChat',
+    image: null,
+    type: 'full-stack',
+    tags: [skills.python],
+  },
+  {
     title: 'ZMK Config (Corne 42)',
     description:
       'A ZMK configuration for my Corne 42 keyboard. This is my primary keyboard for day to day work.',

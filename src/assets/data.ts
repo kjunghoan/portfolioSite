@@ -17,12 +17,12 @@ export const aboutMeContent: AboutMeContent = {
     My background is in general engineering and healthcare, which has gives me the foresight to \
     understand the importance of building modular and maintainable systems while allowing for deep \
     dives into understanding how each part of a given system operates and contributes to the whole.",
-    "When I'm not internally crying watching Carlos Sainz or KT Rolster finish a weekend in 5-10th \
+    "When I'm not internally suffering watching Carlos Sainz or KT Rolster\
     I enjoy tinkering with hardware, building and documenting my personal projects, and building \
     mechanical keyboards.",
-    "Currently, I'm finishing my migration from a mess of vms and lxcs to a kube cluster running on \
-    Proxmox, before I finally get around to starting personal ai project that I've been putting off for \
-    about 5-7 years now. Let's see how this goes.",
+    "Currently, I'm finishing my migration from a kube cluster running k3s to talos Linux with OpenTofu \
+    , before I finally get around to continuing my personal ai project that I've been putting off. \
+     Let's see how this goes together.",
   ],
 };
 
@@ -30,7 +30,7 @@ export const contactContent: ContactContent[] = [
   {
     pointOfContact: 'Email',
     logo: '/assets/icons/email.svg',
-    link: 'mailto:kjunggoan@gmail.com',
+    link: 'mailto:kjunghoan@gmail.com',
   },
   {
     pointOfContact: 'LinkedIn',

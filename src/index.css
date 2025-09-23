@@ -5,11 +5,9 @@ html {
   scroll-padding-top: 2rem;
 }
 
-/* Custom slower smooth scrolling */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
-    /* Slower scroll timing - approximately 40% of default speed */
     scroll-snap-type: y mandatory;
   }
 }

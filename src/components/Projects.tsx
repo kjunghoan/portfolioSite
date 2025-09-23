@@ -37,9 +37,9 @@ const Projects: React.FC = () => {
         if (projectsSection) {
           const rect = projectsSection.getBoundingClientRect();
           const scrollTarget =
-            window.pageYOffset + rect.bottom - window.innerHeight + 100;
+            window.scrollY + rect.bottom - window.innerHeight + 100;
 
-          const startPosition = window.pageYOffset;
+          const startPosition = window.scrollY;
           const distance = scrollTarget - startPosition;
           const duration = 1200;
           let start: number | null = null;
@@ -114,14 +114,16 @@ const Projects: React.FC = () => {
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.slice(0, 4).map((skill: Tag, skillIndex: number) => (
-                    <span
-                      key={skillIndex}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 transition-colors"
-                    >
-                      {skill.title}
-                    </span>
-                  ))}
+                  {project.tags
+                    .slice(0, 4)
+                    .map((skill: Tag, skillIndex: number) => (
+                      <span
+                        key={skillIndex}
+                        className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 transition-colors"
+                      >
+                        {skill.title}
+                      </span>
+                    ))}
                   {project.tags.length > 4 && (
                     <span className="px-3 py-1 bg-gray-100 text-gray-500 text-sm rounded-full">
                       +{project.tags.length - 4} more

@@ -17,7 +17,7 @@ export const useScrollUtils = () => {
       if (!element) return;
 
       const targetPosition = element.offsetTop;
-      const startPosition = window.pageYOffset;
+      const startPosition = window.scrollY;
       const distance = targetPosition - startPosition;
       const duration = 1200;
       let start: number | null = null;

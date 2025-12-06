@@ -28,20 +28,20 @@ interface SkillBase {
 export interface SkillContent extends SkillBase {
   logo: string;
   type:
-  | 'language'
-  | 'framework'
-  | 'library'
-  | 'database'
-  | 'cloud'
-  | 'tool'
-  | 'misc'
-  | 'platform'
-  | 'other'
-  | 'version_control'
-  | 'text_editor'
-  | 'orm'
-  | 'proxy'
-  | 'backend_service';
+    | 'language'
+    | 'framework'
+    | 'library'
+    | 'database'
+    | 'cloud'
+    | 'tool'
+    | 'misc'
+    | 'platform'
+    | 'other'
+    | 'version_control'
+    | 'text_editor'
+    | 'orm'
+    | 'proxy'
+    | 'backend_service';
 }
 
 export interface Tag extends SkillBase {
@@ -54,20 +54,19 @@ export interface CombinedSkill {
   link: string;
   logo: string;
   type:
-  | 'language'
-  | 'framework'
-  | 'library'
-  | 'database'
-  | 'cloud'
-  | 'tool'
-  | 'misc'
-  | 'platform'
-  | 'other'
-  | 'version_control'
-  | 'text_editor'
-  | 'orm'
-  | 'proxy'
-  | 'backend_service';
+    | 'language'
+    | 'framework'
+    | 'library'
+    | 'database'
+    | 'cloud'
+    | 'tool'
+    | 'misc'
+    | 'platform'
+    | 'other'
+    | 'version_control'
+    | 'text_editor'
+    | 'orm'
+    | 'proxy'
+    | 'backend_service';
   color: string;
 }
-

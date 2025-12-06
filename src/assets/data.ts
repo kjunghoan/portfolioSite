@@ -6,11 +6,11 @@ import {
 } from '@/types/dataTypes';
 
 export const aboutMeContent: AboutMeContent = {
-  heading: 'Jung Hoan Kim',
+  heading: 'Simon Kim',
   subHeading: 'Software Engineer',
   image: '/assets/images/profile-placeholder.svg',
   content: [
-    "Hi, I'm Jung Hoan Kim, a software engineer with a passion for building scalable and efficient \
+    "Hi, I'm Simon Kim, a software engineer with a passion for building scalable and efficient \
     applications. I have experience in full-stack development, cloud computing, and DevOps \
     practices. I enjoy working on projects that challenge me to learn new technologies, and more\
     importantly, deepen my understanding of those technologies.\
